@@ -17,6 +17,7 @@ public class PersonController : ControllerBase
 
     [HttpPost]
     [ExecutionDurationActionFilter]
+    [GenericExceptionFilter]
     public async Task<IActionResult> Create(Person person)
     {
         var createdPerson = await _personRepository.Create(person);
