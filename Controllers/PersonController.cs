@@ -1,3 +1,4 @@
+using DesafioBackend.Filters;
 using DesafioBackend.Models;
 using DesafioBackend.Repositories;
 using Microsoft.AspNetCore.Mvc;
@@ -15,6 +16,7 @@ public class PersonController : ControllerBase
     }
 
     [HttpPost]
+    [ExecutionDurationActionFilter]
     public async Task<IActionResult> Create(Person person)
     {
         var createdPerson = await _personRepository.Create(person);
